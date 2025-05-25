@@ -115,12 +115,12 @@ class MarkdownLoader {
 
         // Convert blockquotes (improved)
         html = html.replace(/^> (.+)$/gim, (match, content) => {
-            return `<blockquote><p>${this.parseInlineFormatting(content)}</p></blockquote>`;
+            return `<blockquote class="mobile-blockquote"><p>${this.parseInlineFormatting(content)}</p></blockquote>`;
         });
 
         // Convert horizontal rules
-        html = html.replace(/^---$/gim, '<hr>');
-        html = html.replace(/^\*\*\*$/gim, '<hr>');
+        html = html.replace(/^---$/gim, '<hr class="mobile-hr">');
+        html = html.replace(/^\*\*\*$/gim, '<hr class="mobile-hr">');
 
         // Split into blocks for better processing
         const blocks = html.split(/\n\s*\n/);
@@ -139,7 +139,7 @@ class MarkdownLoader {
             // Handle ordered lists (improved)
             if (block.match(/^\d+\.\s/m)) {
                 const lines = block.split('\n');
-                let listHtml = '<ol>';
+                let listHtml = '<ol class="mobile-list">';
                 let currentItem = '';
                 let inList = false;
                 
@@ -176,7 +176,7 @@ class MarkdownLoader {
             // Handle unordered lists (improved)
             if (block.match(/^[-*+]\s/m)) {
                 const lines = block.split('\n');
-                let listHtml = '<ul>';
+                let listHtml = '<ul class="mobile-list">';
                 let currentItem = '';
                 let inList = false;
                 
@@ -256,7 +256,7 @@ class MarkdownLoader {
                 
                 if (lines.length === 1) {
                     // Single line - simple paragraph
-                    processedBlocks.push(`<p>${this.parseInlineFormatting(lines[0])}</p>`);
+                    processedBlocks.push(`<p class="mobile-paragraph">${this.parseInlineFormatting(lines[0])}</p>`);
                 } else {
                     // Multiple lines - check if they should be separate paragraphs or line breaks
                     let paragraphContent = '';
@@ -274,7 +274,7 @@ class MarkdownLoader {
                         } else {
                             // Start new paragraph
                             if (paragraphContent) {
-                                processedBlocks.push(`<p>${this.parseInlineFormatting(paragraphContent)}</p>`);
+                                processedBlocks.push(`<p class="mobile-paragraph">${this.parseInlineFormatting(paragraphContent)}</p>`);
                             }
                             paragraphContent = line;
                         }
@@ -282,7 +282,7 @@ class MarkdownLoader {
                     
                     // Add the last paragraph
                     if (paragraphContent) {
-                        processedBlocks.push(`<p>${this.parseInlineFormatting(paragraphContent)}</p>`);
+                        processedBlocks.push(`<p class="mobile-paragraph">${this.parseInlineFormatting(paragraphContent)}</p>`);
                     }
                 }
             } else {
