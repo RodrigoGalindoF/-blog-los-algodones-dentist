@@ -1040,11 +1040,17 @@ body {
         text-align: center;
     }
 
-    .container-medium-992px.blog-post { /* This is the direct wrapper of rich-text */
-        padding: 0 !important; /* No internal padding */
-        margin: 10px 0 0 0 !important; /* 10px top margin, 0 for other sides */
+    .container-medium-992px.blog-post {
+        padding: 0 !important;
+        margin: 20px 0 0 0 !important; /* Increased from 10px to 20px */
         width: 100% !important;
         box-sizing: border-box !important;
+    }
+
+    .blog-container-ind-tag {
+        width: auto !important;
+        max-width: fit-content !important;
+        display: inline-block !important;
     }
 }
 
@@ -1374,7 +1380,7 @@ footer {
     
     .container-medium-992px.blog-post {
         padding: 0 !important;
-        margin: 10px 0 0 0 !important; /* 10px top margin, 0 for other sides */
+        margin: 20px 0 0 0 !important; /* Increased from 10px to 20px */
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -1743,9 +1749,9 @@ footer {
     }
 
     .blog-container-ind-tag {
-        width: fit-content !important; /* Ensure it's not full width */
-        /* Its specific padding (3px 10px) and other styles are defined elsewhere for mobile */
-        /* No horizontal padding here, it has its own internal padding */
+        width: auto !important;
+        max-width: fit-content !important;
+        display: inline-block !important;
     }
 
     .blog-container-ind-date {
@@ -1878,13 +1884,34 @@ footer {
 
 @media (max-width: 991px) {
     #banner-mobile {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 1;
+        min-width: 0;
+        width: 100%;
     }
-    #banner-desktop {
-        display: none;
+
+    #banner-mobile .banner-link {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        flex-shrink: 0;
     }
-    .banner-btn {
-        display: none;
+
+    .banner-section {
+        padding: 8px 10px;
+        gap: 6px;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -1919,55 +1946,79 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 767px) {
-    /* Mobile-specific content styles */
-    .mobile-paragraph,
-    .mobile-list,
-    .mobile-blockquote,
-    .mobile-hr {
-        padding: 0 5px !important;
+@media (max-width: 767px) and (orientation: portrait) {
+    /* Banner fixes for vertical mobile */
+    .banner-section {
+        padding: 8px 10px;
+        gap: 6px;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        min-height: 36px;
+    }
+
+    #banner-mobile {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 1;
+        min-width: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    #banner-mobile .banner-link {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        flex-shrink: 0;
+    }
+
+    /* Blog tag fixes for vertical mobile */
+    .blog-container-ind-tag {
+        width: auto !important;
+        max-width: fit-content !important;
+        display: inline-block !important;
+        margin: 0 auto 20px auto !important;
+    }
+
+    /* Blog post spacing fixes for vertical mobile */
+    .container-medium-992px.blog-post {
+        padding: 0 !important;
+        margin: 20px 0 0 0 !important;
         width: 100% !important;
-        max-width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    .mobile-list {
-        padding-left: 20px !important;
-    }
-
-    .mobile-blockquote {
-        margin: 1.5rem 5px !important;
-        padding: 1rem !important;
-    }
-
-    .mobile-hr {
-        margin: 2rem 5px !important;
-    }
-
-    /* Ensure all text content respects mobile padding */
-    .rich-text > * {
-        padding: 0 5px !important;
+    .blog-post-text-container {
+        padding: 28px 5px !important;
+        margin: 0 !important;
         width: 100% !important;
-        max-width: 100% !important;
         box-sizing: border-box !important;
+        min-height: auto !important;
+        height: auto !important;
     }
 
-    /* Adjust list padding */
-    .rich-text ul,
-    .rich-text ol {
-        padding-left: 20px !important;
-        padding-right: 5px !important;
+    .blog-post-image-container {
+        min-height: 300px;
+        height: 300px;
+        width: 100% !important;
     }
 
-    /* Adjust blockquote margins */
-    .rich-text blockquote {
-        margin: 1.5rem 5px !important;
-    }
-
-    /* Adjust table margins */
-    .rich-text table {
-        margin: 1.5rem 5px !important;
-        width: calc(100% - 10px) !important;
+    .blog-post-ind-image-main-card-copy {
+        border-radius: 0 0 12px 12px;
+        height: 100%;
+        min-height: 300px;
+        width: 100% !important;
+        object-fit: cover !important;
     }
 }
 
