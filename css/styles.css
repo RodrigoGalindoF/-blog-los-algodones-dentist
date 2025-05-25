@@ -1561,34 +1561,55 @@ footer {
     .content-container,
     .container-medium-992px,
     .blog-post-content-new-site {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .custom-container.nav.header {
-        padding: 0 10px;
+        padding: 0 5px !important;
     }
 
     .blog-post-text-container {
-        padding: 28px 10px;
+        padding: 28px 5px !important;
         border-radius: 12px 12px 0 0;
         margin-bottom: -16px;
         min-height: 300px;
         height: 300px;
         text-align: left;
+        width: 100% !important;
     }
     
     .blog-post-image-container {
         min-height: 300px;
         height: 300px;
+        width: 100% !important;
     }
     
     .blog-post-ind-image-main-card-copy {
         border-radius: 0 0 12px 12px;
         height: 100%;
         min-height: 300px;
+        width: 100% !important;
+        object-fit: cover !important;
     }
-    
+
+    .rich-text img,
+    .blog-post-content-new-site img,
+    .blog-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 1rem 0 !important;
+        padding: 0 !important;
+    }
+
+    .blog-post-header-container {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
     .blog-post-text-title-main {
         font-size: 28px;
     }

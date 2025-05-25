@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         .blog-post-content-new-site img {
-            width: 710px !important;
-            height: 380px !important;
+            width: 100% !important;
+            height: auto !important;
             object-fit: cover !important;
-            object-position: left center !important;
+            object-position: center !important;
             display: block !important;
             margin: 20px 0 !important;
             float: none !important;
-            max-width: 710px !important;
-            min-width: 710px !important;
-            max-height: 380px !important;
-            min-height: 380px !important;
+            max-width: 100% !important;
+            min-width: unset !important;
+            max-height: none !important;
+            min-height: unset !important;
             pointer-events: none !important;
             user-select: none !important;
             -webkit-user-select: none !important;
@@ -28,6 +28,17 @@
             -ms-user-select: none !important;
             transition: none !important;
             transform: none !important;
+        }
+        
+        @media (min-width: 768px) {
+            .blog-post-content-new-site img {
+                width: 710px !important;
+                height: 380px !important;
+                max-width: 710px !important;
+                min-width: 710px !important;
+                max-height: 380px !important;
+                min-height: 380px !important;
+            }
         }
         
         .blog-post-content-new-site p {

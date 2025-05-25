@@ -92,7 +92,7 @@ class MarkdownLoader {
         html = html.replace(/^# \*{0,4}(.*?)\*{0,4}$/gim, '<h1>$1</h1>');
 
         // Convert images (handle both standard and reference-style images)
-        html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 20px 0;">');
+        html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="blog-image" style="width: 100%; height: auto; margin: 20px 0;">');
         
         // Handle reference-style images with mapping
         html = html.replace(/!\[\]\[([^\]]+)\]/g, (match, imageName) => {
@@ -105,7 +105,7 @@ class MarkdownLoader {
             if (this.imageMapping[imageName]) {
                 const imageFile = this.imageMapping[imageName];
                 const altText = this.generateAltText(imageFile);
-                return `<img src="Webp/${imageFile}" alt="${altText}" class="blog-image" onerror="this.style.display='none'; console.warn('Image not found: Webp/${imageFile}');">`;
+                return `<img src="Webp/${imageFile}" alt="${altText}" class="blog-image" style="width: 100%; height: auto; margin: 20px 0;" onerror="this.style.display='none'; console.warn('Image not found: Webp/${imageFile}');">`;
             } else {
                 // Keep as placeholder if no mapping exists, but hide it by default
                 console.warn(`No mapping found for image: ${imageName}`);
