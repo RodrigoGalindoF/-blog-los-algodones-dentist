@@ -1324,19 +1324,77 @@ footer {
 }
 
 @media (max-width: 767px) {
+    /* Footer mobile styles */
     footer {
-        padding: 40px 0 20px 0;
+        padding: 40px 10px 20px 10px !important;
     }
+
     .stack-footer {
         flex-direction: column;
         gap: 32px;
         text-align: left;
+        padding: 0 10px !important;
     }
+
     .stack-footer-down {
         flex-direction: column;
         gap: 16px;
         text-align: center;
+        padding: 0 10px !important;
     }
+
+    .footer-list {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .footer-title {
+        margin-bottom: 12px !important;
+    }
+
+    .footer-link-two,
+    .contact-link-2 {
+        margin-bottom: 8px !important;
+    }
+
+    /* Blog post section mobile styles */
+    .blog-post {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .blog-post-content-new-site {
+        padding: 0 5px !important;
+        margin: 0 !important;
+    }
+
+    .rich-text {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Remove any extra padding from blog post container */
+    .container-medium-992px {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Ensure content container only has the 5px padding */
+    .content-container {
+        padding: 0 5px !important;
+    }
+
+    /* Remove any extra padding from blog post header */
+    .blog-post-header-container {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .blog-post-text-container {
+        padding: 28px 5px !important;
+        margin: 0 !important;
+    }
+
     .image-77 {
         max-width: 70px;
         width: 70px;
@@ -1647,6 +1705,7 @@ footer {
 
     .rich-text table {
         margin: 1.5rem 5px !important;
+        width: calc(100% - 10px) !important;
     }
 
     .blog-post-header-container {
