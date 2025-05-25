@@ -23,6 +23,7 @@ body {
     gap: 12px;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .banner-icon {
@@ -37,12 +38,14 @@ body {
     font-family: "Plus Jakarta Display", sans-serif;
     font-weight: 400;
     color: #FFFFFF;
+    white-space: nowrap;
 }
 
 .banner-paragraph-bold {
     font-weight: 700;
     font-family: "Plus Jakarta Display", sans-serif;
     color: #FFFFFF;
+    white-space: nowrap;
 }
 
 .banner-link {
@@ -1878,5 +1881,171 @@ footer {
     .rich-text table {
         margin: 1.5rem 5px !important;
         width: calc(100% - 10px) !important;
+    }
+}
+
+/* Additional banner text size adjustments for very small screens */
+@media (max-width: 360px) {
+    .banner-paragraph,
+    .banner-paragraph-bold {
+        font-size: 11px;
+    }
+
+    .banner-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    /* Tablet styles */
+    body {
+        font-size: 16px;
+    }
+
+    .banner-paragraph {
+        font-size: 14px;
+    }
+
+    .banner-paragraph-bold {
+        font-size: 14px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .blog-post-text-title-main {
+        font-size: 36px;
+    }
+
+    .blog-container-ind-tag {
+        font-size: 12px;
+    }
+
+    .blog-container-ind-date {
+        font-size: 15px;
+    }
+
+    .rich-text h1 {
+        font-size: 32px;
+    }
+
+    .rich-text h2 {
+        font-size: 28px;
+    }
+
+    .rich-text h3 {
+        font-size: 24px;
+    }
+
+    .rich-text h4 {
+        font-size: 20px;
+    }
+
+    .rich-text p {
+        font-size: 16px;
+    }
+
+    .rich-text li {
+        font-size: 16px;
+    }
+
+    .footer-title {
+        font-size: 18px;
+    }
+
+    .footer-link-two,
+    .contact-link-2 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Mobile styles */
+    body {
+        font-size: 14px;
+    }
+
+    .banner-section {
+        padding: 8px 10px;
+    }
+
+    .banner-paragraph {
+        font-size: 12px;
+    }
+
+    .banner-paragraph-bold {
+        font-size: 12px;
+    }
+
+    .banner-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .blog-post-text-title-main {
+        font-size: 28px;
+    }
+
+    .blog-container-ind-tag {
+        font-size: 11px;
+    }
+
+    .blog-container-ind-date {
+        font-size: 13px;
+    }
+
+    .rich-text h1 {
+        font-size: 28px;
+    }
+
+    .rich-text h2 {
+        font-size: 24px;
+    }
+
+    .rich-text h3 {
+        font-size: 20px;
+    }
+
+    .rich-text h4 {
+        font-size: 18px;
+    }
+
+    .rich-text p {
+        font-size: 14px;
+    }
+
+    .rich-text li {
+        font-size: 14px;
+    }
+
+    .footer-title {
+        font-size: 16px;
+    }
+
+    .footer-link-two,
+    .contact-link-2 {
+        font-size: 13px;
+    }
+
+    /* Banner mobile optimization */
+    #banner-mobile {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #banner-mobile .banner-link {
+        font-size: 12px;
+        white-space: nowrap;
     }
 } 
