@@ -1328,74 +1328,117 @@ footer {
 
 @media (max-width: 767px) {
     /* Footer mobile styles */
-    footer {
+    footer.content-container {
         padding: 40px 10px 20px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    .stack-footer {
-        flex-direction: column;
-        gap: 32px;
-        text-align: left;
-        padding: 0 10px !important;
-    }
-
+    .stack-footer,
     .stack-footer-down {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-        padding: 0 10px !important;
-    }
-
-    .footer-list {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .footer-title {
-        margin-bottom: 12px !important;
-    }
-
-    .footer-link-two,
-    .contact-link-2 {
-        margin-bottom: 8px !important;
+        padding: 0 !important; /* Remove padding here as parent controls it */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     /* Blog post section mobile styles */
-    .blog-post {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .blog-post-content-new-site {
+    section.section-container > .content-container:has(.blog-post) {
         padding: 0 5px !important;
-        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
-
-    .rich-text {
+    
+    .container-medium-992px.blog-post {
         padding: 0 !important;
         margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    /* Remove any extra padding from blog post container */
-    .container-medium-992px {
-        padding: 0 !important;
+    .rich-text.blog.blog-post-content-new-site {
+        padding: 0 !important; /* Content inside will have its own 5px if necessary */
         margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    /* Ensure content container only has the 5px padding */
+    /* Ensure all direct children of rich-text also respect no extra padding */
+    .rich-text > * {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Specific padding for elements inside rich-text if they need to align with 5px overall */
+    .rich-text p,
+    .rich-text h1,
+    .rich-text h2,
+    .rich-text h3,
+    .rich-text h4,
+    .rich-text pre,
+    .rich-text .image-placeholder,
+    .rich-text img {
+        /* These elements, if they are direct children, should be full width
+           and let their internal content or margins define spacing if needed */
+        /* Example: if a p needs 5px padding, it would be .rich-text p { padding: 0 5px; } */
+        /* For now, ensuring they don't add extra themselves */
+    }
+
+    .rich-text ul,
+    .rich-text ol {
+        padding-left: 20px !important; /* Standard indent for lists */
+        /* padding-right is not needed here as parent .rich-text handles the 5px boundary */
+        margin-left:0;
+        margin-right:0;
+    }
+
+    .rich-text blockquote {
+        margin: 1.5rem 0 !important; /* Margin for top/bottom, no horizontal margin */
+        padding: 1rem 10px !important; /* Internal padding for blockquote content */
+        box-sizing: border-box !important;
+    }
+
+    .rich-text table {
+        margin: 1.5rem 0 !important; /* Margin for top/bottom */
+        width: 100% !important; /* Table itself is full width */
+        display: block; /* Ensure it behaves as a block for width */
+        overflow-x: auto; /* Allow horizontal scrolling if content is too wide */
+    }
+    
+    .rich-text th, .rich-text td {
+        padding: 0.5rem 0.75rem; /* Keep original cell padding */
+    }
+
+
+    /* Content container generic mobile padding */
     .content-container {
-        padding: 0 5px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
+    
+    /* Override for specific containers if needed, but general is 5px */
+    /* Footer content container has 10px, handled by footer.content-container */
+    /* Blog content container (section > .content-container) has 5px, handled above */
 
-    /* Remove any extra padding from blog post header */
+
+    /* Blog post header elements */
     .blog-post-header-container {
         padding: 0 !important;
         margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .blog-post-text-container {
-        padding: 28px 5px !important;
+        padding: 28px 0 !important; /* Vertical padding, horizontal handled by parent */
         margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .image-77 {
