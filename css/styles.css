@@ -1013,14 +1013,38 @@ body {
     }
 
     .banner-section {
-        flex-direction: column;
-        gap: 8px;
         padding: 8px 10px;
+        gap: 6px; /* Reduced gap */
+        flex-wrap: nowrap; /* Ensure no wrapping at the section level */
+        overflow: hidden; /* Hide anything that still overflows */
+    }
+
+    .banner-paragraph,
+    .banner-paragraph-bold {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 1; /* Allow text to shrink */
+        min-width: 0; /* Important for flex shrink to work with overflow */
+    }
+
+    .banner-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0; /* Icon should not shrink */
     }
 
     .banner-btn {
         width: 100%;
         text-align: center;
+    }
+
+    .container-medium-992px.blog-post { /* This is the direct wrapper of rich-text */
+        padding: 0 !important; /* No internal padding */
+        margin: 10px 0 0 0 !important; /* 10px top margin, 0 for other sides */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 
@@ -1350,7 +1374,7 @@ footer {
     
     .container-medium-992px.blog-post {
         padding: 0 !important;
-        margin: 0 !important;
+        margin: 10px 0 0 0 !important; /* 10px top margin, 0 for other sides */
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -1435,7 +1459,7 @@ footer {
     }
 
     .blog-post-text-container {
-        padding: 28px 0 !important; /* Vertical padding, horizontal handled by parent */
+        padding: 28px 5px !important; /* Correct parent padding */
         margin: 0 !important;
         width: 100% !important;
         box-sizing: border-box !important;
@@ -1678,13 +1702,10 @@ footer {
     }
 
     .blog-post-text-container {
-        padding: 28px 5px !important;
-        border-radius: 12px 12px 0 0;
-        margin-bottom: -16px;
-        min-height: 300px;
-        height: 300px;
-        text-align: left;
+        padding: 28px 5px !important; /* Correct parent padding */
+        margin: 0 !important;
         width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .blog-post-image-container {
@@ -1717,18 +1738,24 @@ footer {
     }
 
     .blog-post-text-title-main {
-        font-size: 28px;
-        padding: 0 5px !important;
-        width: 100% !important;
-        max-width: 100% !important;
+        padding: 0 !important; /* Title uses parent's padding */
+        /* font-size, width, max-width are fine from previous rules or defaults */
     }
-    
-    .blog-container-ind-tag,
-    .blog-container-ind-date,
+
+    .blog-container-ind-tag {
+        width: fit-content !important; /* Ensure it's not full width */
+        /* Its specific padding (3px 10px) and other styles are defined elsewhere for mobile */
+        /* No horizontal padding here, it has its own internal padding */
+    }
+
+    .blog-container-ind-date {
+         width: auto !important; /* Allow natural width */
+         padding: 0 !important; /* No specific horizontal padding here */
+    }
+
     .back-btn-blog {
-        padding: 0 5px !important;
-        width: 100% !important;
-        max-width: 100% !important;
+        width: auto !important; /* Allow natural width for inline-flex */
+        padding: 0 !important; /* No specific horizontal padding here */
     }
 
     .rich-text p,
@@ -1812,11 +1839,28 @@ footer {
     }
     
     .banner-section {
-        flex-direction: column;
-        gap: 8px;
         padding: 8px 10px;
+        gap: 6px; /* Reduced gap */
+        flex-wrap: nowrap; /* Ensure no wrapping at the section level */
+        overflow: hidden; /* Hide anything that still overflows */
     }
     
+    .banner-paragraph,
+    .banner-paragraph-bold {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 1; /* Allow text to shrink */
+        min-width: 0; /* Important for flex shrink to work with overflow */
+    }
+
+    .banner-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0; /* Icon should not shrink */
+    }
+
     .banner-btn {
         width: 100%;
         text-align: center;
@@ -1931,12 +1975,21 @@ footer {
 @media (max-width: 360px) {
     .banner-paragraph,
     .banner-paragraph-bold {
-        font-size: 11px;
+        font-size: 10px; /* Further reduced font size */
     }
 
     .banner-icon {
-        width: 18px;
-        height: 18px;
+        width: 16px; /* Further reduced icon size */
+        height: 16px;
+    }
+    .banner-section {
+        gap: 4px; /* Further reduced gap */
+    }
+    #banner-mobile {
+        gap: 4px; /* Further reduced gap */
+    }
+     #banner-mobile .banner-link {
+        font-size: 10px; /* Further reduced font size */
     }
 }
 
@@ -2081,14 +2134,19 @@ footer {
     #banner-mobile {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px; /* Reduced gap */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        flex-shrink: 1; /* Allow this container to shrink */
+        min-width: 0; /* Allow shrinking */
     }
 
     #banner-mobile .banner-link {
         font-size: 12px;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block; /* Or block, ensure it has layout */
     }
 } 
