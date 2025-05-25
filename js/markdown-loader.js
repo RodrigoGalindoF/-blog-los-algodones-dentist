@@ -105,7 +105,7 @@ class MarkdownLoader {
             if (this.imageMapping[imageName]) {
                 const imageFile = this.imageMapping[imageName];
                 const altText = this.generateAltText(imageFile);
-                return `<img src="Webp/${imageFile}" alt="${altText}" class="blog-image" style="width: 100%; height: auto; margin: 20px 0;" onerror="this.style.display='none'; console.warn('Image not found: Webp/${imageFile}');">`;
+                return `<img src="./Webp/${imageFile}" alt="${altText}" class="blog-image" style="width: 100%; height: auto; margin: 20px 0;" onerror="this.style.display='none'; console.warn('Image not found: ./Webp/${imageFile}');">`;
             } else {
                 // Keep as placeholder if no mapping exists, but hide it by default
                 console.warn(`No mapping found for image: ${imageName}`);
